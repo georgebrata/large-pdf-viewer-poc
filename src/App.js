@@ -35,9 +35,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <h2>Welcome to PDF.js</h2>
-        </div>
         <Toolbar
           ref={(ref) => this.toolbar = ref} 
           onZoomIn={(e) => this.zoomIn(e)}
