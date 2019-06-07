@@ -19,12 +19,26 @@ class App extends Component {
   }
   zoomIn(e) {
     this.viewer.setState({
-      scale: this.viewer.state.scale * 1.1
+      scale: this.viewer.state.scale * 1.25
     });
   }
   zoomOut(e) {
     this.viewer.setState({
-      scale: this.viewer.state.scale / 1.1
+      scale: this.viewer.state.scale / 1.25
+    });
+  }
+  fitWidth(e) {
+    let factor = document.querySelector('.Viewer').clientWidth/document.querySelector('.textLayer').clientWidth;
+    
+    this.viewer.setState({
+      scale: this.viewer.state.scale * factor
+    });
+  }
+  fitHeight(e) {
+    let factor = document.querySelector('.Viewer').clientHeight/document.querySelector('.textLayer').clientHeight;
+
+    this.viewer.setState({
+      scale: this.viewer.state.scale * factor
     });
   }
   displayScaleChanged(e) {
@@ -38,7 +52,9 @@ class App extends Component {
         <Toolbar
           ref={(ref) => this.toolbar = ref} 
           onZoomIn={(e) => this.zoomIn(e)}
-          onZoomOut={(e) => this.zoomOut(e)}></Toolbar>
+          onZoomOut={(e) => this.zoomOut(e)}
+          onFitWidth={(e) => this.fitWidth(e)}
+          onFitHeight={(e) => this.fitHeight(e)}></Toolbar>
         <div className="App-body">
           <Viewer
             ref={(ref) => this.viewer = ref}

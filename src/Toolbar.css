@@ -12,7 +12,9 @@
 }
 
 .Toolbar > .ZoomIn,
-.Toolbar > .ZoomOut {
+.Toolbar > .ZoomOut,
+.Toolbar > .FitHeight,
+.Toolbar > .FitWidth {
     border: 0;
     border-radius: 0;
     background-color: #fc3;
